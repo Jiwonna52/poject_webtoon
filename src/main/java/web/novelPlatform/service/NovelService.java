@@ -1,10 +1,12 @@
-package web.novelPlatform.Service;
+package web.novelPlatform.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.novelPlatform.Entity.Novel;
-import web.novelPlatform.Repository.NovelRepository;
+import web.novelPlatform.entity.Genre;
+import web.novelPlatform.entity.Novel;
+import web.novelPlatform.entity.SerialState;
+import web.novelPlatform.repository.NovelRepository;
 
 import java.util.List;
 
@@ -22,6 +24,19 @@ public class NovelService {
 
     public void deleteNovel(Long id){
         novelRepository.delete(id);
+    }
+
+    //update
+    @Transactional
+    public void updateNovel(Long id, String title, String introduce, SerialState serialState, Genre genre){
+        Novel novel = novelRepository.findOne(id);
+
+        //작가(user)는 바꾸면 안 된다!
+        novel.setTitle(title);
+        novel.setIntroduce(introduce);
+        novel.setSerialState(serialState);
+        novel.setGenre(genre);
+
     }
 
     public List<Novel> findNovels(){

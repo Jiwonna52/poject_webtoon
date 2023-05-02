@@ -1,4 +1,4 @@
-package web.novelPlatform.Entity;
+package web.novelPlatform.entity;
 
 public enum Genre {
     modernFantasy, RomanceFantasy, BL

@@ -1,14 +1,14 @@
-package web.novelPlatform.Service;
+package web.novelPlatform.service;
 
 import org.junit.jupiter.api.Assertions;
-import web.novelPlatform.Entity.User;
+import web.novelPlatform.entity.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-import web.novelPlatform.Repository.UserRepository;
+import web.novelPlatform.repository.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

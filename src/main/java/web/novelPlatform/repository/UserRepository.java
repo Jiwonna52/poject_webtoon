@@ -1,7 +1,6 @@
-package web.novelPlatform.Repository;
+package web.novelPlatform.repository;
 
-import org.aspectj.weaver.loadtime.definition.LightXMLParser;
-import web.novelPlatform.Entity.User;
+import web.novelPlatform.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

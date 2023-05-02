@@ -1,7 +1,7 @@
-package web.novelPlatform.Service;
+package web.novelPlatform.service;
 
-import web.novelPlatform.Entity.User;
-import web.novelPlatform.Repository.UserRepository;
+import web.novelPlatform.entity.User;
+import web.novelPlatform.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

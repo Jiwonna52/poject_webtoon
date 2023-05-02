@@ -1,4 +1,4 @@
-package web.novelPlatform.Entity;
+package web.novelPlatform.entity;
 
 import lombok.Getter;
 import lombok.Setter;

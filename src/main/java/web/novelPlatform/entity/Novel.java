@@ -1,9 +1,12 @@
-package web.novelPlatform.Entity;
+package web.novelPlatform.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import web.novelPlatform.entity.chapter.BigChapter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -29,5 +32,8 @@ public class Novel {
 
     @Enumerated(EnumType.STRING)
     private Genre genre;
+
+    @OneToMany(mappedBy = "novel") //소설이 변경될 경우 bigChapter가 변경되어야 할 것이 있나?
+    private List<BigChapter> bigChapters = new ArrayList<>();
 
 }
