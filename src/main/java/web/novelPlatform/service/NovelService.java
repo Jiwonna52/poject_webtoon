@@ -22,6 +22,7 @@ public class NovelService {
         return novelRepository.create(novel);
     }
 
+    @Transactional
     public void deleteNovel(Long id){
         novelRepository.delete(id);
     }

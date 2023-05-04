@@ -1,6 +1,5 @@
 package web.novelPlatform.entity.chapter;
 
-import antlr.NoViableAltForCharException;
 import lombok.Getter;
 import lombok.Setter;
 import web.novelPlatform.entity.Novel;
@@ -11,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class BigChapter {
+public class Chapter {
     @Id
     @GeneratedValue
     @Column(name = "bigChapter_id")
@@ -25,7 +24,7 @@ public class BigChapter {
     private Novel novel;
 
     @OneToMany(mappedBy = "bigChapter") //하위 챕터가 있는 경우 상위 챕터를 지울 수 없음
-    private List<SmallChapter> smallChapters = new ArrayList<>();
+    private List<Content> contents = new ArrayList<>();
 
     //private int number;
 

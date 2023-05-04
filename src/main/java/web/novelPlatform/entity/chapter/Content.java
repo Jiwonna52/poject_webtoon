@@ -8,16 +8,16 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-public class SmallChapter {
+public class Content {
 
     @Id
     @GeneratedValue
     @Column(name = "smallChapter_id")
     private Long id;
 
-    private String content;
+    private String contents;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bigChapter_id")
-    private BigChapter bigChapter;
+    private Chapter chapter;
 }
