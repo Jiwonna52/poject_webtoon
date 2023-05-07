@@ -33,7 +33,7 @@ public class ContentRepository {
     //전부 찾기
     public List<Content> findAll(){
 
-        return em.createQuery("select sc from SmallChapter", Content.class).getResultList();
+        return em.createQuery("select c from Content c", Content.class).getResultList();
     }
 
 }

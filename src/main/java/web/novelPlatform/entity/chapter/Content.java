@@ -12,12 +12,12 @@ public class Content {
 
     @Id
     @GeneratedValue
-    @Column(name = "smallChapter_id")
+    @Column(name = "Content_id")
     private Long id;
 
     private String contents;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bigChapter_id")
+    @JoinColumn(name = "Chapter_id")
     private Chapter chapter;
 }

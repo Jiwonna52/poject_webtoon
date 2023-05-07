@@ -35,7 +35,7 @@ public class ChapterService {
 
     public void findContent(Long id){
         //id에 해당하는 BigChapter 하위의 SmallChapter를 찾아가지고 만일 리스트에 값이 있으면 예외 호출
-        List<Content> findContents = ChapterRepository.findSmallChapterAll(id);
+        List<Content> findContents = ChapterRepository.findContentAll(id);
         if(!findContents.isEmpty()){
             throw new IllegalStateException("하위 항목이 존재해 삭제할 수 없습니다.");
         }

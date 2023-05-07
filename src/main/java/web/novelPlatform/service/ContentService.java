@@ -45,7 +45,7 @@ public class ContentService {
     }
 
 
-    //전부 찾기
+    //전부 찾기 -> 굳이?
     private List<Content> findAllContents(){
         return contentRepository.findAll();
     }

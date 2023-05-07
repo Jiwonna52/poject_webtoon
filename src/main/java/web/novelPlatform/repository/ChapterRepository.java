@@ -34,12 +34,12 @@ public class ChapterRepository {
 
     //BigChapter 전체를 조회한다.
     public List<Chapter> findAll(){
-        return em.createQuery("select bc form BigChapter", Chapter.class).getResultList();
+        return em.createQuery("select c form Chapter c", Chapter.class).getResultList();
     }
 
     //여기서 쿼리 날릴 때 BigChapter하고 연관된 SmallChapter만 가지고 와야 한다.
     //전부 가지고 오면 다른 소설의 것도 가져옴!
-    public List<Content> findSmallChapterAll(Long id){
+    public List<Content> findContentAll(Long id){
         //일단 이렇게 하고 나중에 적당한 쿼리를 찾자.
         Chapter chapter = findOne(id);
         return chapter.getContents();
