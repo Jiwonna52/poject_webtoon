@@ -28,18 +28,29 @@ public class ChapterService {
     @Transactional
     //삭제 기능 -> 만일 하위 내용이 있다면 삭제하면 안 된다.
     public void deleteChapter(Long id){
-        findContent(id);
+        /*
+        try{
+            findContent(id);
+        }catch (IllegalStateException e){
+            System.out.println("소설을 삭제할 수 없습니다.");
+            throw new IllegalStateException();
+        }
+
+        //findContent(id);*/
         ChapterRepository.delete(id);
 
     }
 
+    /*
+    이건 나중에 구현
     public void findContent(Long id){
         //id에 해당하는 BigChapter 하위의 SmallChapter를 찾아가지고 만일 리스트에 값이 있으면 예외 호출
         List<Content> findContents = ChapterRepository.findContentAll(id);
+
         if(!findContents.isEmpty()){
             throw new IllegalStateException("하위 항목이 존재해 삭제할 수 없습니다.");
         }
-    }
+    }*/
 
     //하나 찾아오는 것
     public Chapter findOne(Long id){

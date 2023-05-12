@@ -13,7 +13,7 @@ import java.util.List;
 public class Chapter {
     @Id
     @GeneratedValue
-    @Column(name = "Chapter_id")
+    @Column(name = "chapter_id")
     private Long id;
 
     private String title;
@@ -23,7 +23,7 @@ public class Chapter {
     @JoinColumn(name = "novel_id")
     private Novel novel;
 
-    @OneToMany(mappedBy = "chapter") //하위 챕터가 있는 경우 상위 챕터를 지울 수 없음
+    @OneToMany(mappedBy = "chapter", cascade = CascadeType.REMOVE) //삭제를 전파
     private List<Content> contents = new ArrayList<>();
 
     //private int number;

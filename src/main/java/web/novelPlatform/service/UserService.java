@@ -16,7 +16,9 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public Long join(User user){
+    public Long join(User user)throws IllegalStateException{
+
+
         validateDuplicateUser(user);
         userRepository.save(user);
 

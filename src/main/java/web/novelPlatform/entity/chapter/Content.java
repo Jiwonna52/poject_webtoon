@@ -18,6 +18,6 @@ public class Content {
     private String contents;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Chapter_id")
+    @JoinColumn(name = "chapter_id")
     private Chapter chapter;
 }
