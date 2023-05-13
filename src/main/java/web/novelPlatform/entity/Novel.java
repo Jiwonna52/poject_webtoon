@@ -13,7 +13,7 @@ import java.util.List;
 public class Novel {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "novel_id")
     private Long id;
 
