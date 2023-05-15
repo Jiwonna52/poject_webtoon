@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+# ... 기존 내용 ...
+
+# application-oauth.properties 제외
+application-oauth.properties
+
