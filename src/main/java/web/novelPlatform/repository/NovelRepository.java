@@ -31,7 +31,7 @@ public class NovelRepository {
 
     //소설 전체 조회
     public List<Novel> findAll(){
-        return em.createQuery("select n from Novel", Novel.class).getResultList();
+        return em.createQuery("select n from Novel n", Novel.class).getResultList();
     }
 
     /*

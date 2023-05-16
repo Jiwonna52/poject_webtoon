@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang = "ko">
+<head>
+    <meta charset="UTF-8">
+    <title>웹소설 연재 페이지</title>
+</head>
+<body>
+<div>
+    <table class = "table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>제목</th>
+            <th>소개</th>
+            <th>장르</th>
+            <th>연재 상황</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="novel : ${novels}">
+            <td th:text="${novel.title}"></td>
+            <td th:text="${novel.introduce}"></td>
+            <td th:text="${novel.genre}"></td>
+            <td th:text="${novel.serialState}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

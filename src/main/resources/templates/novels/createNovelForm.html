@@ -6,7 +6,7 @@
     <title>웹소설 연재 페이지</title>
 </head>
 <body>
-<form role="form" action="/novels/new" th:object="${novelForm}" method="post">
+<form role="form" action="/novel/new" th:object="${novelForm}" method="post">
     <div>
         <label th:for="title">제목 : </label>
         <input type="text" th:field="*{title}" placeholder="제목을 입력하세요"/>
@@ -15,7 +15,20 @@
         <label th:for="introduce">내용 : </label>
         <input type="text" th:field="*{introduce}" placeholder="내용을 입력하세요"/>
     </div>
+    <div>
+        <label class="col-form-label">Difficulty:</label>
+        <select class="form-control" th:field="*{Genre}">
+            <option th:each="genreValue : ${T(web.novelPlatform.entity.Genre).values()}"
+                    th:value="${genreValue.name()}"
+                    th:text="${genreValue.name()}">
+                val
+            </option>
+        </select>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+
 </body>
 </html>
