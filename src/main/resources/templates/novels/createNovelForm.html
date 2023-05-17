@@ -16,7 +16,6 @@
         <input type="text" th:field="*{introduce}" placeholder="내용을 입력하세요"/>
     </div>
     <div>
-        <label class="col-form-label">Difficulty:</label>
         <select class="form-control" th:field="*{Genre}">
             <option th:each="genreValue : ${T(web.novelPlatform.entity.Genre).values()}"
                     th:value="${genreValue.name()}"

@@ -5,10 +5,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import web.novelPlatform.controller.form.ChapterForm;
+import web.novelPlatform.entity.Novel;
 import web.novelPlatform.entity.chapter.Chapter;
 import web.novelPlatform.service.ChapterService;
+import web.novelPlatform.service.NovelService;
 
 import java.util.List;
 
@@ -17,29 +21,32 @@ import java.util.List;
 @Slf4j
 public class ChapterController {
     private final ChapterService chapterService;
+    private final NovelService novelService;
 
-    @GetMapping(value = "/chapters/new")
+    @GetMapping(value = "/chapters/new/{novelId}")
     public String createForm(Model model){
         model.addAttribute("chapterForm", new ChapterForm());
+
         return "chapters/createChapterForm";
     }
 
-    @PostMapping("/chapter/new")
-    public String create(ChapterForm form){
+    @PostMapping("/chapters/new/{novelId}")
+    public String create(@PathVariable("novelId") Long novelId, ChapterForm form){
+
         Chapter chapter = new Chapter();
+        Novel novel = (Novel) novelService.findOne(novelId);
         chapter.setTitle(form.getTitle());
+        chapter.setNovel(novel);
+
         chapterService.createChapter(chapter);
 
-        return "redirect:/chapters";
+        return "/home";
     }
 
+    /*
+    @GetMapping("/chapters/new/{novelId}/list")
+    public String chapterList(@PathVariable("novelId") Long novelId){
 
-    //해당 소설의 챕터를 보여주는 리스트
-    @GetMapping(value = "/chapters")
-    public String list(Model model){
-        List<Chapter> chapters = chapterService.findChapters();
-        model.addAttribute("chapters", chapters);
+    }*/
 
-        return "chapter/chapterList";
-    }
 }

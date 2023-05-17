@@ -15,6 +15,7 @@
             <th>소개</th>
             <th>장르</th>
             <th>연재 상황</th>
+            <th>챕터 관리</th>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
             <td th:text="${novel.introduce}"></td>
             <td th:text="${novel.genre}"></td>
             <td th:text="${novel.serialState}"></td>
+            <td>
+                <a href="#" th:href="@{/chapters/new/{id} (id=${novel.id})}" class="btn btn-primary" role="button">수정</a>
+            </td>
+
         </tr>
         </tbody>
     </table>

@@ -6,7 +6,7 @@
     <title>웹소설 연재 페이지</title>
 </head>
 <body>
-<form role="form" action="/chapters/new" th:object="${chapterForm}" method="post">
+<form  th:object="${chapterForm}" method="post">
     <div>
         <label th:for="title">제목 : </label>
         <input type="text" th:field="*{title}" placeholder="제목을 입력하세요"/>

@@ -54,11 +54,13 @@ public class NovelController {
 
     //소설의 목록을 보여주는
     @GetMapping(value = "/novels")
-    public String list(Model model){
+    public String novelList(Model model){
         List<Novel> novels = novelService.findNovels();
         model.addAttribute("novels", novels);
 
         return "novels/novelList";
     }
+
+
 
 }

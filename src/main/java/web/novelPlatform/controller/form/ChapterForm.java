@@ -9,6 +9,6 @@ import web.novelPlatform.entity.Novel;
 public class ChapterForm {
 
     private String title;
-    //private Novel novel;
+    private Novel novel;
 
 }
