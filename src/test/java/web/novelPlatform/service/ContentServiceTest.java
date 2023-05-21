@@ -1,6 +1,5 @@
 package web.novelPlatform.service;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import web.novelPlatform.entity.Genre;
 import web.novelPlatform.entity.Novel;
 import web.novelPlatform.entity.SerialState;
-import web.novelPlatform.entity.User;
-import web.novelPlatform.entity.chapter.Chapter;
-import web.novelPlatform.entity.chapter.Content;
+import web.novelPlatform.entity.Member;
+import web.novelPlatform.entity.chapters.Chapter;
+import web.novelPlatform.entity.chapters.Content;
 import web.novelPlatform.repository.ChapterRepository;
 import web.novelPlatform.repository.ContentRepository;
 
@@ -25,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ContentServiceTest {
 
     @Autowired
-    UserService userService;
+    memberService memberService;
     @Autowired
     NovelService novelService;
     @Autowired
@@ -40,15 +39,15 @@ public class ContentServiceTest {
     @Test
     public void 내용등록(){
         //Given
-        User user = new User();
-        user.setName("A");
-        Long userID = userService.join(user);
+        Member member = new Member();
+        member.setName("A");
+        Long userID = memberService.join(member);
 
         Novel novel = new Novel();
         novel.setTitle("악녀한테 너무해!");
         novel.setGenre(Genre.RomanceFantasy);
         novel.setSerialState(SerialState.Live);
-        novel.setUser(user);
+        novel.setMember(member);
         Long novelId = novelService.createNovel(novel);
 
         Chapter chapter = new Chapter();
@@ -69,15 +68,15 @@ public class ContentServiceTest {
     @Test
     public void 챕터삭제() throws Exception{
         //Given
-        User user = new User();
-        user.setName("A");
-        Long userID = userService.join(user);
+        Member member = new Member();
+        member.setName("A");
+        Long userID = memberService.join(member);
 
         Novel novel = new Novel();
         novel.setTitle("악녀한테 너무해!");
         novel.setGenre(Genre.RomanceFantasy);
         novel.setSerialState(SerialState.Live);
-        novel.setUser(user);
+        novel.setMember(member);
         Long novelId = novelService.createNovel(novel);
 
         Chapter chapter = new Chapter();

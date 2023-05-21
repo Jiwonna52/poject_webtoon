@@ -1,4 +1,4 @@
-package web.novelPlatform.entity.chapter;
+package web.novelPlatform.entity.chapters;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +23,7 @@ public class Chapter {
     @JoinColumn(name = "novel_id")
     private Novel novel;
 
-    @OneToMany(mappedBy = "chapter", orphanRemoval = true) //삭제를 전파
+    @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL, orphanRemoval = true) //삭제를 전파
     private List<Content> contents = new ArrayList<>();
 
     //private int number;

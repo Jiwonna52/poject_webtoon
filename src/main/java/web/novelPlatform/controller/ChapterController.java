@@ -5,16 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import web.novelPlatform.controller.form.ChapterForm;
 import web.novelPlatform.entity.Novel;
-import web.novelPlatform.entity.chapter.Chapter;
+import web.novelPlatform.entity.chapters.Chapter;
 import web.novelPlatform.service.ChapterService;
 import web.novelPlatform.service.NovelService;
-
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor

@@ -24,14 +24,14 @@ public class NovelController {
     private final NovelService novelService;
 
     //get방식으로 html에서 novels/new로 오면 return해서 novels/createNovelForm이 열리는 것이다.
-    @GetMapping(value = "/novel/new") //get은 form화면을 열어보고
+    @GetMapping(value = "/novels/new") //get은 form화면을 열어보고
     public String createForm(Model model){
         model.addAttribute("novelForm", new NovelForm());
 
         return "novels/createNovelForm";
     }
 
-    @PostMapping("/novel/new") //데이터를 실제 등록
+    @PostMapping("/novels/new") //데이터를 실제 등록
     //NovelForm이 넘어온다.
     //참고 꼭 넣어야 하는 게 있다면 form에다가 @Valid를 붙여준다.
     public String create(NovelForm form){

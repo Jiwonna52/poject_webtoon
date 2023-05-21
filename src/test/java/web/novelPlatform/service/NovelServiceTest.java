@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 import web.novelPlatform.entity.Genre;
 import web.novelPlatform.entity.Novel;
 import web.novelPlatform.entity.SerialState;
-import web.novelPlatform.entity.User;
+import web.novelPlatform.entity.Member;
 import web.novelPlatform.repository.NovelRepository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,21 +26,22 @@ public class NovelServiceTest {
     NovelService novelService;
 
     @Autowired
-    UserService userService;
+    memberService memberService;
 
     @Test
+    @Rollback(false)
     public void 소설등록() throws Exception{
         //Given
-        User user = new User();
-        user.setName("A");
-        Long userId = userService.join(user);
+        Member member = new Member();
+        member.setName("A");
+        Long userId = memberService.join(member);
 
         //When
         Novel novel = new Novel();
         novel.setTitle("악녀한테 너무해!");
         novel.setGenre(Genre.RomanceFantasy);
         novel.setSerialState(SerialState.Live);
-        novel.setUser(user);
+        novel.setMember(member);
         Long novelId = novelService.createNovel(novel);
 
 
@@ -51,16 +53,16 @@ public class NovelServiceTest {
     @Test
     public void 소설삭제() throws Exception{
         //Given
-        User user = new User();
-        user.setName("A");
-        Long userId = userService.join(user);
+        Member member = new Member();
+        member.setName("A");
+        Long userId = memberService.join(member);
 
         //When
         Novel novel = new Novel();
         novel.setTitle("악녀한테 너무해!");
         novel.setGenre(Genre.RomanceFantasy);
         novel.setSerialState(SerialState.Live);
-        novel.setUser(user);
+        novel.setMember(member);
         Long novelId = novelService.createNovel(novel);
         novelService.deleteNovel(novelId);
 
@@ -72,15 +74,15 @@ public class NovelServiceTest {
     @Test
     public void 소설변경() throws Exception{
         //Given
-        User user = new User();
-        user.setName("A");
-        Long userId = userService.join(user);
+        Member member = new Member();
+        member.setName("A");
+        Long userId = memberService.join(member);
 
         Novel novel = new Novel();
         novel.setTitle("악녀한테 너무해!");
         novel.setGenre(Genre.RomanceFantasy);
         novel.setSerialState(SerialState.Live);
-        novel.setUser(user);
+        novel.setMember(member);
         novelService.createNovel(novel);
 
         //When

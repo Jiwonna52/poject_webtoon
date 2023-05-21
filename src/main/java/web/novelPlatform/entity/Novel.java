@@ -2,7 +2,7 @@ package web.novelPlatform.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import web.novelPlatform.entity.chapter.Chapter;
+import web.novelPlatform.entity.chapters.Chapter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ public class Novel {
     //User와 ManytoOne 관계
 
     @ManyToOne(fetch = FetchType.LAZY) //소설을 조회할 때 유저도 조회해야 할까?
-    @JoinColumn(name = "user_id") //user에 있는 user_id와 연결
-    private User user;
+    @JoinColumn(name = "member_id") //user에 있는 user_id와 연결
+    private Member member;
 
     @Enumerated(EnumType.STRING) //문자열로 보이도록
     private SerialState serialState;
@@ -33,7 +33,7 @@ public class Novel {
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
-    @OneToMany(mappedBy = "novel", orphanRemoval = true) //소설이 변경될 경우 bigChapter가 변경되어야 할 것이 있나?
+    @OneToMany(mappedBy = "novel", cascade = CascadeType.ALL, orphanRemoval = true) //소설이 변경될 경우 bigChapter가 변경되어야 할 것이 있나?
     private List<Chapter> chapters = new ArrayList<>();
 
 }

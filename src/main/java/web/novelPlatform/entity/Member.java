@@ -8,15 +8,15 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class User {
+public class Member {
 
     @Id @GeneratedValue
-    @Column(name = "user_id")
+    @Column(name = "member_id")
     private Long id;
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     //Novel에 있는 user와 연결 -> Novel에서 해당 유저를 가지고 있는 소설 목록을 뽑아서 가지고 옴
     //만일 유저에 있는 내용이 바뀌면 소설 또한 내용이 바뀌어야 한다.
     private List<Novel> novelList;

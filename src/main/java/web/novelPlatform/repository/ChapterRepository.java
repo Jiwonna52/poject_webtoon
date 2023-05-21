@@ -2,8 +2,8 @@ package web.novelPlatform.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import web.novelPlatform.entity.chapter.Chapter;
-import web.novelPlatform.entity.chapter.Content;
+import web.novelPlatform.entity.chapters.Chapter;
+import web.novelPlatform.entity.chapters.Content;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -34,11 +34,11 @@ public class ChapterRepository {
 
     //BigChapter 전체를 조회한다.
     public List<Chapter> findAll(){
-        return em.createQuery("select c form Chapter c", Chapter.class).getResultList();
+        return em.createQuery("select c from Chapter c", Chapter.class).getResultList();
     }
 
-    public List<Chapter> findNovelChapter(Long id){
-        return em.createQuery("select c form Chapter c where c.novel_id = :id", Chapter.class).getResultList();
+    public List<Chapter> findNovelChapter(Long novelId){
+        return em.createQuery("select c from Chapter c where c.novel.id = :id", Chapter.class).setParameter("id", novelId).getResultList();
     }
 
     //여기서 쿼리 날릴 때 BigChapter하고 연관된 SmallChapter만 가지고 와야 한다.

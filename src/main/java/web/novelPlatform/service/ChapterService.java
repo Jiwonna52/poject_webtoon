@@ -3,8 +3,7 @@ package web.novelPlatform.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import web.novelPlatform.entity.chapter.Chapter;
-import web.novelPlatform.entity.chapter.Content;
+import web.novelPlatform.entity.chapters.Chapter;
 import web.novelPlatform.repository.ChapterRepository;
 
 import java.util.List;

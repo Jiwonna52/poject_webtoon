@@ -1,11 +1,9 @@
 package web.novelPlatform.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.novelPlatform.entity.chapter.Chapter;
-import web.novelPlatform.entity.chapter.Content;
+import web.novelPlatform.entity.chapters.Content;
 import web.novelPlatform.repository.ContentRepository;
 
 import java.util.List;

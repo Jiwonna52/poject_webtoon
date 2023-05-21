@@ -2,7 +2,7 @@ package web.novelPlatform.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import web.novelPlatform.entity.chapter.Content;
+import web.novelPlatform.entity.chapters.Content;
 
 import javax.persistence.EntityManager;
 import java.util.List;

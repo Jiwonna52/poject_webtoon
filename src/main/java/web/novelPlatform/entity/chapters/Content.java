@@ -1,4 +1,4 @@
-package web.novelPlatform.entity.chapter;
+package web.novelPlatform.entity.chapters;
 
 
 import lombok.Getter;
