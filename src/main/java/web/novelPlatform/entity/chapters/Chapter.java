@@ -26,6 +26,7 @@ public class Chapter {
     @OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL, orphanRemoval = true) //삭제를 전파
     private List<Content> contents = new ArrayList<>();
 
+
     //private int number;
 
 }

@@ -13,6 +13,8 @@ import web.novelPlatform.entity.chapters.Chapter;
 import web.novelPlatform.service.ChapterService;
 import web.novelPlatform.service.NovelService;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @Slf4j
@@ -37,13 +39,16 @@ public class ChapterController {
 
         chapterService.createChapter(chapter);
 
-        return "/home";
+        return "redirect:/{novelId}/chapters";
     }
 
-    /*
-    @GetMapping("/chapters/new/{novelId}/list")
-    public String chapterList(@PathVariable("novelId") Long novelId){
+    //값을 보여주는 것이니까 Get을 써야 한다.
+    @GetMapping(value = "/{novelId}/chapters")
+    public String chapterList(@PathVariable("novelId") Long novelId, Model model){
+        List<Chapter> chapters = chapterService.findNovelChapters(novelId);
+        model.addAttribute("chapters", chapters);
 
-    }*/
+        return "chapters/chapterList";
+    }
 
 }

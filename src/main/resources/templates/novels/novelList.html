@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>웹소설 연재 페이지</title>
+    <link rel="stylesheet" th:href="@{/src/main/resources/static/css/novelListCss.css}" />
 </head>
 <body>
 <div>
@@ -25,10 +26,8 @@
             <td th:text="${novel.introduce}"></td>
             <td th:text="${novel.genre}"></td>
             <td th:text="${novel.serialState}"></td>
-            <td>
-                <a href="#" th:href="@{/chapters/new/{id} (id=${novel.id})}" class="btn btn-primary" role="button">수정</a>
-            </td>
-
+            <td><a href="#" th:href="@{/chapters/new/{id} (id=${novel.id})}" class="btn btn-primary" role="button">수정</a></td>
+            <td><a href="#" th:href="@{/{id}/chapters (id=${novel.id})}"class="btn btn-primary" role="button">챕터 전체 보기</a></td>
         </tr>
         </tbody>
     </table>

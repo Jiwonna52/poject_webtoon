@@ -55,6 +55,7 @@ public class ChapterServiceTest {
         chapter.setTitle("1");
         Long chapterId = chapterService.createChapter(chapter);
         //chapterService.findChapters();
+        System.out.println("찾았다!" + chapterService.findNovelChapters(novelId).get(0).getTitle());
         chapterService.findNovelChapters(novelId);
 
         //Then
