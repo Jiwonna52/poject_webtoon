@@ -36,4 +36,8 @@ public class ContentRepository {
         return em.createQuery("select c from Content c", Content.class).getResultList();
     }
 
+    public List<Content> findContentsByChapterId(Long chapterId){
+        return em.createQuery("select c from Content c where c.chapter.id = :id", Content.class).setParameter("id", chapterId).getResultList();
+    }
+
 }

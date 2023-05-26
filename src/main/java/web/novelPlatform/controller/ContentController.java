@@ -13,6 +13,8 @@ import web.novelPlatform.entity.chapters.Content;
 import web.novelPlatform.service.ChapterService;
 import web.novelPlatform.service.ContentService;
 
+import java.util.List;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -38,4 +40,11 @@ public class ContentController {
         return "/home";
 
     }
+
+    @GetMapping(value = "/{chapterId}/contents")
+    public String contentList(@PathVariable("chapterId") Long chapterId, Model model){
+        List<Content> contents = contentService.findContentsByChapterId(chapterId);
+        return "/home";
+    }
+
 }

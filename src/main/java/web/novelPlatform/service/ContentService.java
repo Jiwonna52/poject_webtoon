@@ -48,4 +48,7 @@ public class ContentService {
         return contentRepository.findAll();
     }
 
+    public List<Content> findContentsByChapterId(Long chapterId){
+        return contentRepository.findContentsByChapterId(chapterId);
+    }
 }
