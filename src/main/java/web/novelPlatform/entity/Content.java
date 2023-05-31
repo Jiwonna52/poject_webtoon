@@ -1,8 +1,9 @@
-package web.novelPlatform.entity.chapters;
+package web.novelPlatform.entity;
 
 
 import lombok.Getter;
 import lombok.Setter;
+import web.novelPlatform.entity.Novel;
 
 import javax.persistence.*;
 
@@ -12,12 +13,13 @@ public class Content {
 
     @Id
     @GeneratedValue
-    @Column(name = "Content_id")
+    @Column(name = "content_id")
     private Long id;
 
     private String contents;
-
+    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "chapter_id")
-    private Chapter chapter;
+    @JoinColumn(name = "novel_id") // one의 외부에서 보여지는 id와 연결을 해줘야 한다.
+    private Novel novel;
+
 }

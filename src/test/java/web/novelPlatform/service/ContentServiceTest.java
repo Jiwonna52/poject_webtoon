@@ -10,9 +10,7 @@ import web.novelPlatform.entity.Genre;
 import web.novelPlatform.entity.Novel;
 import web.novelPlatform.entity.SerialState;
 import web.novelPlatform.entity.Member;
-import web.novelPlatform.entity.chapters.Chapter;
-import web.novelPlatform.entity.chapters.Content;
-import web.novelPlatform.repository.ChapterRepository;
+import web.novelPlatform.entity.Content;
 import web.novelPlatform.repository.ContentRepository;
 
 import java.util.List;

@@ -3,7 +3,7 @@ package web.novelPlatform.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.novelPlatform.entity.chapters.Content;
+import web.novelPlatform.entity.Content;
 import web.novelPlatform.repository.ContentRepository;
 
 import java.util.List;
@@ -48,7 +48,7 @@ public class ContentService {
         return contentRepository.findAll();
     }
 
-    public List<Content> findContentsByChapterId(Long chapterId){
-        return contentRepository.findContentsByChapterId(chapterId);
+    public List<Content> findContentByNovelId(Long novelId){
+        return contentRepository.findContentByNovelId(novelId);
     }
 }

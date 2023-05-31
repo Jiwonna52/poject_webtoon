@@ -1,4 +1,4 @@
 package web.novelPlatform.controller;
 
-public class UserController {
+public class MemberController {
 }

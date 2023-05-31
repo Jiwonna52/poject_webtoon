@@ -2,7 +2,7 @@ package web.novelPlatform.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import web.novelPlatform.entity.chapters.Content;
+import web.novelPlatform.entity.Content;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -36,8 +36,9 @@ public class ContentRepository {
         return em.createQuery("select c from Content c", Content.class).getResultList();
     }
 
-    public List<Content> findContentsByChapterId(Long chapterId){
-        return em.createQuery("select c from Content c where c.chapter.id = :id", Content.class).setParameter("id", chapterId).getResultList();
+    public List<Content> findContentByNovelId(Long novelId){
+        return em.createQuery("select c from Content c where c.novel.id = :id").setParameter("id", novelId).getResultList();
     }
+
 
 }

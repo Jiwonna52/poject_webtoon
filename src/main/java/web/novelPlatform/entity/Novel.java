@@ -2,7 +2,6 @@ package web.novelPlatform.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import web.novelPlatform.entity.chapters.Chapter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class Novel {
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
-    @OneToMany(mappedBy = "novel", cascade = CascadeType.ALL, orphanRemoval = true) //소설이 변경될 경우 bigChapter가 변경되어야 할 것이 있나?
-    private List<Chapter> chapters = new ArrayList<>();
+    @OneToMany(mappedBy = "novel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Content> contents = new ArrayList<>();
 
 }

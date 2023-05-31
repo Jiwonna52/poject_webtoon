@@ -18,7 +18,7 @@
         <tr th:each="chapter, i : ${chapters}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${chapter.title}"></td>
-            <td><a href="#" th:href="@{/contents/{id}/new (id=${chapter.id})}" class="btn btn-primary" role="button">수정</a></td>
+            <td><a href="#" th:href="@{/contents/{novelId}/{chapterId}/new (novelId = ${chapter.novel.id}, chapterId=${chapter.id})}" class="btn btn-primary" role="button">수정</a></td>
         </tr>
         </tbody>
     </table>

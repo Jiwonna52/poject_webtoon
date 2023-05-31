@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import web.novelPlatform.controller.form.ContentForm;
-import web.novelPlatform.entity.chapters.Chapter;
-import web.novelPlatform.entity.chapters.Content;
-import web.novelPlatform.service.ChapterService;
+import web.novelPlatform.entity.Novel;
+import web.novelPlatform.entity.Content;
 import web.novelPlatform.service.ContentService;
+import web.novelPlatform.service.NovelService;
 
 import java.util.List;
 
@@ -21,29 +21,29 @@ import java.util.List;
 public class ContentController {
 
     private final ContentService contentService;
-    private final ChapterService chapterService;
+    private final NovelService novelService;
 
-    @GetMapping(value = "/contents/{chapterId}/new")
+    @GetMapping(value = "/{novelId}/contents/new")
     public String createContent(Model model){
         model.addAttribute("contentForm", new ContentForm());
 
         return "contents/createContentForm";
     }
 
-    @PostMapping("/contents/{chapterId}/new")
-    public String create(@PathVariable("chapterId") Long chapterId, ContentForm form){
+    @PostMapping("/{novelId}/contents/new")
+    public String create(@PathVariable("novelId") Long novelId,  ContentForm form){
         Content content = new Content();
-        Chapter chapter = (Chapter) chapterService.findOne(chapterId);
+        Novel novel = (Novel) novelService.findOne(novelId);
         content.setContents(form.getContents());
-        content.setChapter(chapter);
+        content.setNovel(novel);
 
         return "/home";
 
     }
 
-    @GetMapping(value = "/{chapterId}/contents")
-    public String contentList(@PathVariable("chapterId") Long chapterId, Model model){
-        List<Content> contents = contentService.findContentsByChapterId(chapterId);
+    @GetMapping(value = "/{novelId}/contents")
+    public String contentList(@PathVariable("novelId") Long novelId, Model model){
+        List<Content> contents = contentService.findContentByNovelId(novelId);
         return "/home";
     }
 

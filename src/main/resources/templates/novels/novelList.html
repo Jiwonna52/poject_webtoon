@@ -26,8 +26,8 @@
             <td th:text="${novel.introduce}"></td>
             <td th:text="${novel.genre}"></td>
             <td th:text="${novel.serialState}"></td>
-            <td><a href="#" th:href="@{/chapters/new/{id} (id=${novel.id})}" class="btn btn-primary" role="button">수정</a></td>
-            <td><a href="#" th:href="@{/{id}/chapters (id=${novel.id})}"class="btn btn-primary" role="button">챕터 전체 보기</a></td>
+            <td><a href="#" th:href="@{/{novelId}/contents/new (novelId=${novel.id})}" class="btn btn-primary" role="button">회차 추가</a></td>
+            <td><a href="#" th:href="@{/{id}/contents (id=${novel.id})}"class="btn btn-primary" role="button">챕터 전체 보기</a></td>
         </tr>
         </tbody>
     </table>
