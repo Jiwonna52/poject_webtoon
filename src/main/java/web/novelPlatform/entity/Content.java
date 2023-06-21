@@ -6,6 +6,7 @@ import lombok.Setter;
 import web.novelPlatform.entity.Novel;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -21,5 +22,8 @@ public class Content {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "novel_id") // one의 외부에서 보여지는 id와 연결을 해줘야 한다.
     private Novel novel;
+
+    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> commentList;
 
 }
