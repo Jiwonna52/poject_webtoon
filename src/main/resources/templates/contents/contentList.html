@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전체 회차</title>
+</head>
+<body>
+  <header>
+    <h1>WebNovel</h1>
+    <nav>
+      <li>BL</li>
+      <li>Fantasy</li>
+      <li>Romance Fantasy</li>
+    </nav>
+  </header>
+  <main>
+    <ol>
+      <li th:each="content : ${contents}" th:text="${content.title}"></li>
+    </ol>
+  </main>
+  <footer>
+    <p>개발자, NJW</p>
+    <p>jiwonna52@gmail.com</p>
+    <p><a href="https://jiwonna52.tistory.com/">블로그</a></p>
+  </footer>
+
+</body>
+</html>

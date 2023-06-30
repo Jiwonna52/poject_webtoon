@@ -7,7 +7,7 @@ import web.novelPlatform.entity.Novel;
 @Getter
 @Setter
 public class ContentForm {
-
+    private String title;
     private String contents;
     private Novel novel;
 }

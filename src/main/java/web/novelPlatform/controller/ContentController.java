@@ -34,17 +34,20 @@ public class ContentController {
     public String create(@PathVariable("novelId") Long novelId,  ContentForm form){
         Content content = new Content();
         Novel novel = (Novel) novelService.findOne(novelId);
+        content.setTitle(form.getTitle());
         content.setContents(form.getContents());
         content.setNovel(novel);
+        contentService.createContent(content);
 
-        return "/home";
+        return "redirect:/{novelId}/contents";
 
     }
 
     @GetMapping(value = "/{novelId}/contents")
     public String contentList(@PathVariable("novelId") Long novelId, Model model){
         List<Content> contents = contentService.findContentByNovelId(novelId);
-        return "/home";
+        model.addAttribute("contents", contents);
+        return "/contents/contentList";
     }
 
 }

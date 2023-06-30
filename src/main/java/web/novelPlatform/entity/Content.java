@@ -16,8 +16,9 @@ public class Content {
     @GeneratedValue
     @Column(name = "content_id")
     private Long id;
-
+    private String title;
     private String contents;
+
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "novel_id") // one의 외부에서 보여지는 id와 연결을 해줘야 한다.

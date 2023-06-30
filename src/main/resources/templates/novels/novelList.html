@@ -7,30 +7,44 @@
     <link rel="stylesheet" th:href="@{/src/main/resources/static/css/novelListCss.css}" />
 </head>
 <body>
-<div>
-    <table class = "table table-striped">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>제목</th>
-            <th>소개</th>
-            <th>장르</th>
-            <th>연재 상황</th>
-            <th>챕터 관리</th>
-            <th>모든 회차 보기</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="novel : ${novels}">
-            <td th:text="${novel.title}"></td>
-            <td th:text="${novel.introduce}"></td>
-            <td th:text="${novel.genre}"></td>
-            <td th:text="${novel.serialState}"></td>
-            <td><a href="#" th:href="@{/{novelId}/contents/new (novelId=${novel.id})}" class="btn btn-primary" role="button">회차 추가</a></td>
-            <td><a href="#" th:href="@{/{id}/contents (id=${novel.id})}"class="btn btn-primary" role="button">챕터 전체 보기</a></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <header>
+        <h1>WebNovel</h1>
+        <nav>
+            <li>BL</li>
+            <li>Fantasy</li>
+            <li>Romance Fantasy</li>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <table class = "table table-striped">
+                <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>소개</th>
+                    <th>장르</th>
+                    <th>연재 상황</th>
+                    <th>챕터 관리</th>
+                    <th>모든 회차 보기</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="novel : ${novels}">
+                    <td th:text="${novel.title}"></td>
+                    <td th:text="${novel.introduce}"></td>
+                    <td th:text="${novel.genre}"></td>
+                    <td th:text="${novel.serialState}"></td>
+                    <td><a href="#" th:href="@{/{novelId}/contents/new (novelId=${novel.id})}" class="btn btn-primary" role="button">회차 추가</a></td>
+                    <td><a href="#" th:href="@{/{id}/contents (id=${novel.id})}"class="btn btn-primary" role="button">챕터 전체 보기</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <p>개발, NJW</p>
+        <p>jiwonna52@gmail.com</p>
+        <p><a href="https://jiwonna52.tistory.com/">블로그</a></p>
+    </footer>
 </body>
 </html>
