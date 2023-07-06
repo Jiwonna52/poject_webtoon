@@ -13,7 +13,9 @@ import web.novelPlatform.entity.Content;
 import web.novelPlatform.service.ContentService;
 import web.novelPlatform.service.NovelService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @Slf4j
@@ -46,6 +48,10 @@ public class ContentController {
     @GetMapping(value = "/{novelId}/contents")
     public String contentList(@PathVariable("novelId") Long novelId, Model model){
         List<Content> contents = contentService.findContentByNovelId(novelId);
+        //Novel novel = novelService.findOne(novelId);
+        //HashMap<Novel, List> map = new HashMap<>();
+        //map.put(novel, contents);
+
         model.addAttribute("contents", contents);
         return "/contents/contentList";
     }

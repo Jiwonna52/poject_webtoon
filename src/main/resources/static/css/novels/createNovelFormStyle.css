@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+}
+
+div {
+    display: block;
+}
+
+hr {
+    color: #023047;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 70em;
+    height: 100%;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+.logo_search_user .search {
+    position: relative;
+    left: 79.7%;
+    border: 1px solid #023047;
+    width: 20%;
+}
+
+button {
+    background-color: #023047;
+    border: none;
+    color: #ffc4d6;
+    margin: 0.1em;
+}
+
+.search #search_novel {
+    padding: 0.25em 0.25em;
+    width: 153m;
+    height: 2.5em;
+    text-align: center;
+    border: none;
+}
+
+.user a {
+    text-decoration: none;
+    color: #023047;
+}
+
+.logo_search_user .user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo_search_user .user a {
+    margin: 0.2em 0.5em;
+}
+
+.navigator .nevigator_list {
+    list-style-type: none;
+    margin: 0;
+    height: 3em;
+}
+
+.navigator .nevigator_list li {
+    float: left;
+    text-decoration: none;
+    color: #023047;
+    position: relative;
+    right: 4%;
+}
+
+.navigator .nevigator_list li a {
+    text-decoration: none;
+    color: #023047;
+    margin: 5em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.wrap_main {
+    position: relative;
+    overflow: visible;
+    width: 1020px;
+    margin: 0 auto;
+    padding: 0 52px 1px;
+    z-index: 30;
+}
+
+li .new_novel_title {
+    position: relative;
+    height: 50px;
+    border: 1px solid #023047;
+    padding: 0 10px;
+
+}
+
+li .new_novel_title input {
+    padding: 17px 0;
+    border: none;
+    width: 100%;
+    color: #023047;
+    text-decoration: none;
+}
+
+.new_novel_genre {
+    margin: 10px 0;
+}
+
+.new_novel_genre>select {
+    width: 200px;
+    height: 50px;
+    border: none;
+}
+
+.new_novel_genre>select>option {
+    border: none;
+    background-color: #023047;
+    color: #ffc4d6;
+}
+
+.new_novel_introduce>textarea {
+    position: relative;
+    width: 97.8%;
+    height: 500px;
+    padding: 17px 10px;
+}
+
+.new_novel_botton {
+    width: 200px;
+    height: 50px;
+    margin: 5px auto;
+    padding: 1em 2em;
+    position: relative;
+    left: 400px;
+}

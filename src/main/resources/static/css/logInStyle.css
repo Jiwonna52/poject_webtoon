@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+}
+
+div {
+    display: block;
+}
+
+.wrap {
+    margin: 5em auto;
+    width: 70em;
+    height: 100%;
+}
+
+h1 {
+    margin: 50px, 0;
+    padding: 2.5rem 2.5rem;
+    text-align: center;
+}
+
+.logo {
+    text-decoration: none;
+    color: #023047;
+}
+
+.log_in_box {
+    width: 30rem;
+    height: 30rem;
+    margin: 0 15rem;
+    border: 2px solid #023047;
+    padding: 0 5em;
+}
+
+.log_in_inEmail {
+    padding: 3em 2em;
+    text-align: center;
+}
+
+.input_first {
+    margin-bottom: 50px;
+    padding: 10px 10px;
+}
+
+.input_second {
+    margin-bottom: 50px;
+    padding: 10px 10px;
+}
+
+#email {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #023047;
+    text-align: center;
+}
+
+#password {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #023047;
+    text-align: center;
+}
+
+.log_in_button {
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+.log_in_button button {
+    width: 80%;
+    height: 50px;
+    padding: 1em 2em;
+    background-color: #023047;
+    color: #ffc4d6;
+}
+
+.user_info>a {
+    color: #023047;
+    position: relative;
+    right: 40%;
+    text-decoration: none;
+}
+
+.user_info .find {
+    list-style-type: none;
+}
+
+.user_info .find {
+    width: 50%;
+    margin: 0;
+    position: relative;
+    left: 50%;
+}
+
+.user_info .find a {
+    color: #023047;
+    text-decoration: none;
+}

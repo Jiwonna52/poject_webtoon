@@ -1,0 +1,269 @@
+body {
+    margin: 0;
+}
+
+div {
+    display: block;
+}
+
+hr {
+    color: #023047;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 70em;
+    height: 100%;
+}
+
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+.logo_search_user .search {
+    position: relative;
+    left: 79.7%;
+    border: 1px solid #023047;
+    width: 20%;
+}
+
+button {
+    background-color: #023047;
+    border: none;
+    color: #ffc4d6;
+    margin: 0.1em;
+}
+
+
+.search #search_novel {
+    padding: 0.25em 0.25em;
+    width: 153m;
+    height: 2.5em;
+    text-align: center;
+    border: none;
+}
+
+.user a {
+    text-decoration: none;
+    color: #023047;
+}
+
+.logo_search_user .user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo_search_user .user a {
+    margin: 0.2em 0.5em;
+}
+
+.navigator .nevigator_list {
+    list-style-type: none;
+    margin: 0;
+    height: 3em;
+}
+
+
+.navigator .nevigator_list li {
+    float: left;
+    text-decoration: none;
+    color: #023047;
+    position: relative;
+    right: 4%;
+}
+
+.navigator .nevigator_list li a {
+    text-decoration: none;
+    color: #023047;
+    margin: 5em;
+}
+
+.main_banner img {
+    width: 70em;
+    height: 40em;
+}
+
+.best_novel {
+    height: 40em;
+}
+
+.best_novel_list_more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.best_novel_list_more:nth-of-type(n) ol {
+    float: left;
+    position: relative;
+    right: 5%;
+
+}
+
+.best_novel_list_more:nth-of-type(n) ol li {
+    height: 12em;
+    width: 20em;
+    border: 1px solid black;
+    background-color: #ffc4d6;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.best_novel_list_more:nth-of-type(n) ol li div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.best_novel_list_more:nth-of-type(n) ol li div img {
+    height: 100%;
+    width: 100%;
+}
+
+/*
+.best_novel_list_more:nth-of-type(n) ol li div:nth-of-type(2) {
+    align-items: center;
+    width: 50%;
+}
+
+.best_novel_list_more:nth-of-type(n) ol li div:nth-of-type(3) {
+    align-items: center;
+    width: 60%;
+}*/
+
+/*
+.best_novel_list_1st ol {
+
+    float: left
+}
+
+.best_novel_list_2st ol {
+
+    float: left
+}
+
+.best_novel_list_3st ol {
+
+    float: left
+}*/
+
+.new_novel {
+    height: 40em;
+}
+
+.new_novel_list_more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.new_novel_list_more:nth-of-type(n) ol {
+    float: left;
+    position: relative;
+    right: 5%;
+}
+
+.new_novel_list_more:nth-of-type(n) ol li {
+    height: 12em;
+    width: 20em;
+    background-color: #ffc4d6;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.new_novel_list_more:nth-of-type(n) ol li div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.new_novel_list_more:nth-of-type(n) ol li div img {
+    height: 100%;
+    width: 100%;
+}
+
+/*
+.new_novel_list_1st ol {
+
+    float: left
+}
+
+.new_novel_list_2st ol {
+
+    float: left
+}
+
+.new_novel_list_3st ol {
+
+    float: left
+}*/
+
+.recommendation_novel {
+    height: 40em;
+}
+
+.recommendation_list_more {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.recommendation_list_more:nth-of-type(n) ol {
+    float: left;
+    position: relative;
+    right: 5%;
+}
+
+.recommendation_list_more:nth-of-type(n) ol li {
+    height: 12em;
+    width: 20em;
+    background-color: #ffc4d6;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.recommendation_list_more:nth-of-type(n) ol li div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.recommendation_list_more:nth-of-type(n) ol li div img {
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/*
+.recommendation_novel_list_1st ol {
+
+    float: left
+}
+
+.recommendation_novel_list_2st ol {
+
+    float: left
+}
+
+.recommendation_novel_list_3st ol {
+    float: left
+}*/

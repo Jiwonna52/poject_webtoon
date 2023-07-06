@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/logInStyle.css">
+</head>
+
+<body>
+<div class="wrap">
+    <header class="haeder">
+        <div class="header_in">
+            <a href="home.com" class="logo">
+                <h1>WebNovel</h1>
+            </a>
+        </div>
+    </header>
+    <main class="main">
+        <div class="log_in_box">
+            <div class="log_in_inEmail">
+                <form action="lonIn">
+                    <div class="input_first">
+                        <label for="email"></label>
+                        <input type="email" placeholder="email을 입력하세요." id="email">
+                    </div>
+                    <div class="input_second">
+                        <label for="password"></label>
+                        <input type="password" placeholder="password를 입력하세요." id="password">
+                    </div>
+                    <div class="log_in_button">
+                        <button>Log in</button>
+                    </div>
+                </form>
+                <div class="user_info">
+                    <a href="join_member.com" id="join_new_member">회원가입</a><span>
+                            <ul class="find">
+                                <li class="find_email">
+                                    <a href="find_email.com">이메일 찾기</a>
+                                </li>
+                                <li class="find_password">
+                                    <a href="find_password.com">비밀번호 찾기</a>
+                                </li>
+                            </ul>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+
+</html>
