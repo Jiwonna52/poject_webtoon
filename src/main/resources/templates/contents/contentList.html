@@ -1,29 +1,103 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>전체 회차</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회차 목록</title>
+  <link rel="stylesheet" href="/css/contents/contentListStyle.css">
 </head>
+
 <body>
-  <header>
-    <h1>WebNovel</h1>
-    <nav>
-      <li>BL</li>
-      <li>Fantasy</li>
-      <li>Romance Fantasy</li>
-    </nav>
+<div class="wrap">
+  <header class="wrap_header">
+    <div class="logo_search_user">
+      <div class="logo">
+        <h1>WebNovel</h1>
+      </div>
+      <div class="search">
+        <form action="search.com">
+          <label for="search_novel"></label>
+          <input type="text" id="search_novel" placeholder="소설을 검색해보세요.">
+          <button class="search_novel_button">검색</button>
+        </form>
+      </div>
+      <div class="user">
+        <a href="log_in.com" id="log_in">로그인</a>
+        <a href="join_us.com" id="join_us">회원가입</a>
+      </div>
+    </div>
+    <hr>
+    <div class="navigator">
+      <ul class="nevigator_list">
+        <li>
+          <a href="genre.com">
+            <span>장르</span>
+          </a>
+        </li>
+        <li>
+          <a href="rank.com">
+            <span>베스트 랭킹</span>
+          </a>
+        </li>
+        <li>
+          <a href="finished.com">
+            <span>완결작품</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </header>
-  <main>
-    <ol>
-      <li th:each="content : ${contents}" th:text="${content.novel.title}"></li>
-    </ol>
+
+  <main class="wrap_main">
+    <div class="novel_information">
+      <div class="novel_img">
+        <img src="https://cdn.pixabay.com/photo/2023/06/12/00/11/smartphone-8057248_640.jpg" alt="">
+      </div>
+      <div class="information">
+        <ul>
+          <li class="novel_title">
+            <span th:text="${novel.title}"></span>
+          </li>
+          <li class="novel_writer">
+            <span>작가 필명</span>
+          </li>
+          <li class="novel_introduce">
+            <span th:text="${novel.introduce}"></span>
+          </li>
+          <li class="novel_notice">
+            <span>소설 공지</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="novel_contents">
+      <ul th:each="content, i : ${contents}">
+        <li>
+          <div class="novel_content">
+            <div class="content_num">
+              <span th:text="${i.index+1}"></span>
+            </div>
+            <div class="content_title">
+              <span th:text="${content.title}"></span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </main>
-  <footer>
-    <p>개발자, NJW</p>
-    <p>jiwonna52@gmail.com</p>
-    <p><a href="https://jiwonna52.tistory.com/">블로그</a></p>
+
+  <hr>
+  <footer class="wrap_footer">
+    <div class="about_developer">
+      <p>개발, NJW</p>
+      <p>jiwonna52@gmail.com</p>
+      <p><a href="https://jiwonna52.tistory.com/">블로그</a></p>
+    </div>
   </footer>
 
+</div>
 </body>
+
 </html>

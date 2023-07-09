@@ -62,7 +62,9 @@
                     </div>
                 </div>
                 <div class="change_buttons">
-                    <button class="change_introduce">소설 정보 수정</button>
+                    <button class="change_introduce">
+                        <a href="#" th:href="@{novels/{novelId}/correction (novelId=${novel.id})}">소설 수정</a>
+                    </button>
                     <button class="change_content">
                         <a href="#" th:href="@{/{novelId}/contents/new (novelId=${novel.id})}">회차 관리</a>
                     </button>

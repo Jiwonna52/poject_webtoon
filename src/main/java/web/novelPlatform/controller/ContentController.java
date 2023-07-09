@@ -48,10 +48,8 @@ public class ContentController {
     @GetMapping(value = "/{novelId}/contents")
     public String contentList(@PathVariable("novelId") Long novelId, Model model){
         List<Content> contents = contentService.findContentByNovelId(novelId);
-        //Novel novel = novelService.findOne(novelId);
-        //HashMap<Novel, List> map = new HashMap<>();
-        //map.put(novel, contents);
-
+        Novel novel = novelService.findOne(novelId);
+        model.addAttribute("novel", novel);
         model.addAttribute("contents", contents);
         return "/contents/contentList";
     }

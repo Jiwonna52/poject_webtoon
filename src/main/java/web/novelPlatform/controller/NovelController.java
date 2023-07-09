@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import web.novelPlatform.controller.form.NovelForm;
 import web.novelPlatform.entity.Genre;
@@ -34,7 +35,7 @@ public class NovelController {
     @PostMapping("/novels/new") //데이터를 실제 등록
     //NovelForm이 넘어온다.
     //참고 꼭 넣어야 하는 게 있다면 form에다가 @Valid를 붙여준다.
-    public String create(NovelForm form){
+    public String create(NovelForm form) {
         Novel novel = new Novel();
         novel.setTitle(form.getTitle());
         novel.setIntroduce(form.getIntroduce());
@@ -60,6 +61,21 @@ public class NovelController {
 
         return "novels/novelList";
     }
+
+    @GetMapping(value="novels/{novelId}/correction")
+    public String correctionForm(@PathVariable("novelId") Long novelId, Model model){
+        Novel novel = novelService.findOne(novelId);
+        model.addAttribute("novel", novel);
+        model.addAttribute("novelForm", new NovelForm());
+
+        return "novels/novelCorrection";
+    }
+
+    /*
+    @PostMapping(value="novels/{novelId}/correction")
+    public String correction(){
+
+    }*/
 
 
 
