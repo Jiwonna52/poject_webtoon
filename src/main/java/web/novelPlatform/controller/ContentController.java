@@ -53,5 +53,11 @@ public class ContentController {
         model.addAttribute("contents", contents);
         return "/contents/contentList";
     }
+    /*
+    @GetMapping(value ="/{novelId}/contents/{contentId}/update")
+    public String updateForm(@PathVariable("novelId") Long novelId, @PathVariable("contentId") Long contentId, Model model){
+        List<Content> contentList = contentService.findContentByNovelId(novelId);
+        Content content = contentList.contains()
+    }*/
 
 }

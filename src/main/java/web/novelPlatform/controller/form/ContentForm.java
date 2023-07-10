@@ -10,4 +10,6 @@ public class ContentForm {
     private String title;
     private String contents;
     private Novel novel;
+
+    private Long id;
 }

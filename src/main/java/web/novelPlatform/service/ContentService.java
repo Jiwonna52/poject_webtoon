@@ -24,22 +24,23 @@ public class ContentService {
     }
 
     @Transactional
-    public void deleteContent(Long id){
-        contentRepository.delete(id);
+    public void deleteContent(Long novelId, Long contentId){
+        contentRepository.delete(novelId, contentId);
     }
 
     //내용 바꾸기
     @Transactional
-    public void updateContent(Long id, String contents){
-        Content content = findOne(id);
+    public void updateContent(Long novelId, Long contentId, String contents, String title){
+        List<Content> content = findOne(novelId, contentId);
 
-        content.setId(id);
-        content.setContents(contents);
+        //연결된 소설하고 댓글들 목록은 바꾸면 안 된다.
+        content.get(0).setContents(contents);
+        content.get(0).setTitle(title);
     }
 
-    //하나 찾기
-    private Content findOne(Long id) {
-        return contentRepository.findOne(id);
+    //특정한 소설에서 한 회차 찾기
+    public List<Content> findOne(Long novelId, Long contentId) {
+        return contentRepository.findOne(novelId, contentId);
     }
 
 

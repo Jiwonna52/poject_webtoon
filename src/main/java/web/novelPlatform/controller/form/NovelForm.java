@@ -19,5 +19,7 @@ public class NovelForm {
 
     private SerialState serialState;
 
+    private Long id;
+
 
 }

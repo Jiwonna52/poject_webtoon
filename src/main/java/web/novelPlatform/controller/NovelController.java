@@ -35,7 +35,7 @@ public class NovelController {
     @PostMapping("/novels/new") //데이터를 실제 등록
     //NovelForm이 넘어온다.
     //참고 꼭 넣어야 하는 게 있다면 form에다가 @Valid를 붙여준다.
-    public String create(NovelForm form) {
+    public String create(@ModelAttribute("form") NovelForm form) {
         Novel novel = new Novel();
         novel.setTitle(form.getTitle());
         novel.setIntroduce(form.getIntroduce());
@@ -44,7 +44,7 @@ public class NovelController {
         novelService.createNovel(novel);
 
         //소설 목록으로 넘어간다.
-        return "redirect:/novels";
+        return "redirect:/myNovels";
     }
 
     //enum을 셀렉트 박스로
@@ -54,7 +54,7 @@ public class NovelController {
     }
 
     //소설의 목록을 보여주는
-    @GetMapping(value = "/novels")
+    @GetMapping(value = "/myNovels")
     public String novelList(Model model){
         List<Novel> novels = novelService.findNovels();
         model.addAttribute("novels", novels);
@@ -62,20 +62,29 @@ public class NovelController {
         return "novels/novelList";
     }
 
-    @GetMapping(value="novels/{novelId}/correction")
+
+    @GetMapping(value="/novels/{novelId}/update")
     public String correctionForm(@PathVariable("novelId") Long novelId, Model model){
         Novel novel = novelService.findOne(novelId);
-        model.addAttribute("novel", novel);
-        model.addAttribute("novelForm", new NovelForm());
+        NovelForm form = new NovelForm();
+        form.setId(novelId);
+        form.setTitle(novel.getTitle());
+        form.setIntroduce(novel.getIntroduce());
+        form.setSerialState(novel.getSerialState());
+        form.setGenre(novel.getGenre());
 
-        return "novels/novelCorrection";
+        //model.addAttribute("novel", novel);
+        model.addAttribute("novelForm", form);
+
+        return "novels/novelUpdate";
     }
 
-    /*
-    @PostMapping(value="novels/{novelId}/correction")
-    public String correction(){
 
-    }*/
+    @PostMapping(value="/novels/{novelId}/update")
+    public String correction(@PathVariable("novelId") Long novelId, @ModelAttribute("form") NovelForm form){
+        novelService.updateNovel(novelId, form.getTitle(), form.getIntroduce(), form.getSerialState(), form.getGenre());
+        return "redirect:/myNovels";
+    }
 
 
 

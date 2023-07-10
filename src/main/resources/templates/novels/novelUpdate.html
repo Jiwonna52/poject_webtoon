@@ -48,17 +48,17 @@
     </header>
     <main class="wrap_main">
         <div class="write_new_novel">
-            <form role ="form" action="novels/{novelId}/correction" th:object="${novelForm}" method="post">
+            <form role ="form" th:object="${novelForm}"  method="post">
                 <ul>
                     <li>
                         <div class="new_novel_title">
-                            <input type="text" th:value="${novel.title}">
+                            <input type="text" th:field="*{title}" th:value="${novelForm.title}">
                         </div>
 
                     </li>
                     <li class="new_novel_genre">
                         <select class="form-control" th:field="*{Genre}">
-                            <option th:value="${novel.genre}">[[${novel.genre}]]</option>
+                            <option th:value="${novelForm.genre}">[[${novelForm.genre}]]</option>
                             <option th:each="genreValue : ${T(web.novelPlatform.entity.Genre).values()}"
                                     th:value="${genreValue.name()}"
                                     th:text="${genreValue.name()}">
@@ -67,7 +67,7 @@
                         </select>
                     </li>
                     <li class="new_novel_introduce">
-                        <textarea th:text="${novel.introduce}" id="introduce" name="introduce" row="50" col="20"></textarea>
+                        <textarea th:text="${novelForm.introduce}" id="introduce" name="introduce" row="50" col="20"></textarea>
                     </li>
                     <button type="submit" class="new_novel_botton">소설 등록하기</button>
                 </ul>
