@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang = "ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>웹소설 연재 페이지</title>
-    <link rel="stylesheet" th:href="@{/css/novels/createNovelFormStyle.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회차 목록</title>
+    <link rel="stylesheet" href="/css/contents/contentUpdateStyle.css">
 </head>
+
 <body>
 <div class="wrap">
     <header class="wrap_header">
@@ -46,37 +49,36 @@
             </ul>
         </div>
     </header>
+
     <main class="wrap_main">
-        <div class="write_new_novel">
-            <form role ="form" th:object="${novelForm}"  method="post">
-                <ul>
-                    <li>
-                        <div class="new_novel_title">
-                            <input type="text" th:field="*{title}" th:value="${novelForm.title}">
+        <h2>소설 제목</h2>
+        <h3>회차 수정</h3>
+        <div class="novel_contents">
+            <ul th:each="content, i : ${contents}">
+                <li>
+                    <div class="novel_content">
+                        <div class="content_num">
+                            <span th:text="${i.index+1}"></span>
                         </div>
-
-                    </li>
-                    <li class="new_novel_genre">
-                        <select class="form-control" th:field="*{Genre}">
-                            <option th:value="${novelForm.genre}">[[${novelForm.genre}]]</option>
-                            <option th:each="genreValue : ${T(web.novelPlatform.entity.Genre).values()}"
-                                    th:value="${genreValue.name()}"
-                                    th:text="${genreValue.name()}">
-                            </option>
-
-                        </select>
-                    </li>
-                    <li class="new_novel_introduce">
-                        <textarea th:text="${novelForm.introduce}" id="introduce" name="introduce" row="50" col="20"></textarea>
-                    </li>
-                    <button type="submit" class="new_novel_botton">소설 수정하기</button>
-                </ul>
-            </form>
-            <form method="POST" th:action="@{/novels/{novelId}/delete (novelId=${novelForm.id})}">
-                <button type="submit" name="submit" value="value" class="link-button">소설 삭제</button>
-            </form>
+                        <div class="content_title">
+                            <a th:href="@{/novels/{novelId}/view/{contentId} (novelId=${novel.id}, contentId=${content.id})}"
+                               th:text="${content.title}"></a>
+                        </div>
+                        <div class="buttons">
+                            <button>수정</button>
+                            <button>삭제</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="update_content">
+            <button class="update_content_button">
+                <a href="#" th:href="@{/{novelId}/contents/new (novelId=${novel.id})}">회차 추가</a>
+            </button>
         </div>
     </main>
+
     <hr>
     <footer class="wrap_footer">
         <div class="about_developer">
@@ -87,6 +89,6 @@
     </footer>
 
 </div>
-
 </body>
+
 </html>

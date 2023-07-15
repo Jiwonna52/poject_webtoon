@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import web.novelPlatform.controller.form.NovelForm;
 import web.novelPlatform.entity.Genre;
 import web.novelPlatform.entity.Novel;
@@ -64,7 +61,7 @@ public class NovelController {
 
 
     @GetMapping(value="/novels/{novelId}/update")
-    public String correctionForm(@PathVariable("novelId") Long novelId, Model model){
+    public String updateNovelForm(@PathVariable("novelId") Long novelId, Model model){
         Novel novel = novelService.findOne(novelId);
         NovelForm form = new NovelForm();
         form.setId(novelId);
@@ -81,8 +78,15 @@ public class NovelController {
 
 
     @PostMapping(value="/novels/{novelId}/update")
-    public String correction(@PathVariable("novelId") Long novelId, @ModelAttribute("form") NovelForm form){
+    public String updateNovel(@PathVariable("novelId") Long novelId, @ModelAttribute("form") NovelForm form){
         novelService.updateNovel(novelId, form.getTitle(), form.getIntroduce(), form.getSerialState(), form.getGenre());
+        return "redirect:/myNovels";
+    }
+
+    //@RequestMapping(value = "/novels/{novelId}/delete", method = RequestMethod.DELETE)
+    @PostMapping(value = "/novels/{novelId}/delete")
+    public String deleteNovel(@PathVariable("novelId") Long novelId){
+        novelService.deleteNovel(novelId);
         return "redirect:/myNovels";
     }
 

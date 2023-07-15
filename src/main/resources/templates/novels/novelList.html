@@ -58,7 +58,8 @@
                         [[${novel.title}]]
                     </div>
                     <div class="introduce">
-                        [[${novel.introduce}]]
+                        <p>[[${novel.introduce}]]</p>
+
                     </div>
                 </div>
                 <div class="change_buttons">
@@ -66,7 +67,7 @@
                         <a href="#" th:href="@{/novels/{novelId}/update (novelId=${novel.id})}">소설 수정</a>
                     </button>
                     <button class="change_content">
-                        <a href="#" th:href="@{/{novelId}/contents/new (novelId=${novel.id})}">회차 관리</a>
+                        <a href="#" th:href="@{/novels/{novelId}/contents/update (novelId=${novel.id})}">회차 관리</a>
                     </button>
                     <button class="change_notice">공지 관리</button>
                 </div>

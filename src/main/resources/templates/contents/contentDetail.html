@@ -62,6 +62,21 @@
       <section th:text = "${content.contents}">
       </section>
     </div>
+    <hr class="sep">
+    <div class="comments">
+      <div class="info">댓글 목록</div>
+      <div class="comments_form">
+        <div class="user_name">유저 이름</div>
+        <form role="form">
+          <textarea name="" id="comment_content" ></textarea>
+          <button>댓글 등록</button>
+        </form>
+      </div>
+      <div class="comments_list">
+        <div>유저 이름1</div>
+        <div>유저 이름1이 작성한 댓글 내용</div>
+      </div>
+    </div>
   </main>
   <hr>
   <footer class="wrap_footer">

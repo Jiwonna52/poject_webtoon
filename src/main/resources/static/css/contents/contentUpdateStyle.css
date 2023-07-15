@@ -77,6 +77,7 @@ button {
     margin: 5em;
 }
 
+
 ul {
     list-style-type: none;
 }
@@ -86,56 +87,70 @@ ul {
     overflow: visible;
     width: 1020px;
     margin: 0 auto;
-    padding: 0 52px 1px;
+    padding: 0;
+    z-index: 30;
 }
 
-.title>h2 {
-    font-size: 30px;
+.novel_contents {
+    border-top: 1px solid #023047;
+}
+
+.novel_contents ul {
+    padding-left: 10px;
     margin: 0;
+}
+
+.novel_contents ul li {
+    height: 85px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.novel_content {
+    display: flex;
+    flex-direction: row;
+}
+
+.novel_content .content_num {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.novel_content .content_num span {
+    margin-left: 20px;
+}
+
+.novel_content .content_title {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    width: 85%;
+}
+
+.novel_content .buttons {
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    font-size: 30px
 }
 
 h3 {
     font-size: 20px;
 }
 
-.real_content>section{
-    width: 100%;
-    padding: 10px 0;
-    font-size: 15px;
-    margin: 0;
-    white-space: pre-wrap;
+.update_content {
+    margin-top: 50px;
 }
 
-hr .sep {
-    color: #023047;
-}
-
-.comments {
-    margin-top: 30px;
-}
-
-.info {
-    font-size: 25px;
-    margin-bottom: 10px;
-}
-
-.comments_form {
-    margin-bottom: 25px;
-}
-
-.comments .user_name {
-    font-size: 20px;
-    width: 99%;
-}
-
-.comments #comment_content {
-    width: 100%;
-    border: 1px solid black;
-    height: 80px;
-    margin-top: 10px;
-}
-
-.comments .comments_list {
-    font-size: 15px;
-    border-bottom: 1px solid rgb(196, 194, 194);
+.update_content_button {
+    width: 150px;
+    height: 50px;
+    margin: 5px auto;
+    padding: 1em 2em;
+    position: relative;
+    left: 400px;
 }

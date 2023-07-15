@@ -123,8 +123,12 @@ ul {
 .title_introduce .introduce {
     height: 70%;
     padding: 3px 10px;
-    white-space: pre-wrap;
 }
+
+.title_introduce .introduce>p{
+white-space: pre-wrap;
+}
+
 
 .change_buttons {
     display: flex;
