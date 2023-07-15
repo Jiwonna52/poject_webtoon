@@ -54,7 +54,7 @@
                 <input type="text" th:field="*{title}" id="content_title" placeholder="소제목을 입력하세요.">
             </div>
             <div class="new_content">
-                <textarea name="" id="" th:text="${contentForm.contents}" placeholder="내용을 입력하세요."></textarea>
+                <textarea name="" th:field="*{contents}" placeholder="내용을 입력하세요."></textarea>
             </div>
             <button class="new_content_button">회차 등록</button>
         </form>

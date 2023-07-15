@@ -53,6 +53,22 @@ public class ContentController {
         model.addAttribute("contents", contents);
         return "/contents/contentList";
     }
+
+    @GetMapping(value = "/novels/{novelId}/view/{contentId}")
+    public String contentView(@PathVariable("novelId") Long novelId, @PathVariable("contentId") Long contentId, Model model){
+        //소설을 가지고 온다.
+        Novel novel = novelService.findOne(novelId);
+        //해당 소설의 원하는 소제목과 내용을 가지고 온다.
+        List<Content> contentList = contentService.findOne(novelId, contentId);
+        Content content = contentList.get(0);
+        System.out.println(content.getTitle());
+        System.out.println(content.getContents());
+        model.addAttribute("content", content);
+
+        return "/contents/contentDetail";
+
+    }
+
     /*
     @GetMapping(value ="/{novelId}/contents/{contentId}/update")
     public String updateForm(@PathVariable("novelId") Long novelId, @PathVariable("contentId") Long contentId, Model model){
