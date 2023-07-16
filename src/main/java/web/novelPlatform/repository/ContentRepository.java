@@ -24,9 +24,9 @@ public class ContentRepository{
     }
 
     //삭제 -> 여기서는 굳이 하위 항목을 찾을 필요가 없다(사실 찾을 하위 항목도 없다)
-
     public void delete(Long novelId, Long contentId){
-        em.remove(findOne(novelId, contentId));
+        Content content = findOne(novelId, contentId).get(0);
+        em.remove(content);
     }
 
     //하나 찾기
@@ -34,15 +34,9 @@ public class ContentRepository{
         //타입 정보르 받을 수 있으니까 타입 쿼리를 슨다.
         TypedQuery<Content> query = em.createQuery("select c from Content c where c.novel.id = :novelId AND c.id = :contentId", Content.class)
                 .setParameter("novelId", novelId).setParameter("contentId", contentId);
-
+        //exception문제 때문에 리스트로 넣었다.
         return em.createQuery("select c from Content c where c.novel.id = :novelId AND c.id = :contentId")
                 .setParameter("novelId", novelId).setParameter("contentId", contentId).getResultList();
-        /*
-        exception문제 때문에 리스트로 넣었다.
-        return  em.createQuery("select c from Content c where c.novel.id = :novelId AND c.id = :contentId", Content.class)
-                .setParameter("novelId", novelId).setParameter("contentId", contentId).getSingleResult();*/
-
-        //return em.find(Content.class, id);
     }
 
     //전부 찾기
@@ -54,6 +48,8 @@ public class ContentRepository{
     public List<Content> findContentByNovelId(Long novelId){
         return em.createQuery("select c from Content c where c.novel.id = :id").setParameter("id", novelId).getResultList();
     }
+
+
 
 
 }

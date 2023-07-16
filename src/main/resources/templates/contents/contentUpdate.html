@@ -65,8 +65,14 @@
                                th:text="${content.title}"></a>
                         </div>
                         <div class="buttons">
-                            <button>수정</button>
-                            <button>삭제</button>
+                            <button>
+                                <a th:href="@{/novels/{novelId}/contents/{contentId}/update (novelId=${novel.id}, contentId=${content.id})}">
+                                    수정
+                                </a>
+                                </button>
+                            <form method="POST" th:action="@{/novels/{novelId}/contents/{contentId}/delete (novelId=${novel.id}, contentId=${content.id})}">
+                                <button type="submit" name="submit" value="value" class="link-button">삭제</button>
+                            </form>
                         </div>
                     </div>
                 </li>

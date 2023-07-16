@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import web.novelPlatform.controller.form.CommentForm;
@@ -83,12 +84,38 @@ public class ContentController {
         return "/contents/contentUpdate";
     }
 
-    /*
-    내일 추가한당...
-    @GetMapping(value ="/novels/{novelId}/contents/{contentId}/update")
-    public String contentDetailUpdate(){
 
-    }*/
+    //회차 수정
+    @GetMapping(value ="/novels/{novelId}/contents/{contentId}/update")
+    public String contentDetailUpdateForm(@PathVariable("novelId") Long novelId, @PathVariable("contentId") Long contentId, Model model){
+        List<Content> contentList = contentService.findOne(novelId, contentId);
+        Content content = contentList.get(0);
+        ContentForm contentForm = new ContentForm();
+
+        contentForm.setContents(content.getContents());
+        contentForm.setId(content.getId());
+        contentForm.setNovel(content.getNovel());
+        contentForm.setTitle(content.getTitle());
+
+        model.addAttribute("contentForm", contentForm);
+
+        return "/contents/contentDetailUpdate";
+    }
+
+    @PostMapping(value = "/novels/{novelId}/contents/{contentId}/update")
+    public String contentDetailUpdate(@PathVariable("novelId") Long novelId, @PathVariable("contentId") Long contentId, @ModelAttribute("contentForm") ContentForm contentForm){
+        contentService.updateContent(novelId, contentId, contentForm.getContents(), contentForm.getTitle());
+
+        return "redirect:/{novelId}/contents";
+    }
+
+    @PostMapping(value = "/novels/{novelId}/contents/{contentId}/delete")
+    public String contentDetailDelete(@PathVariable("novelId") Long novelId, @PathVariable("contentId") Long contentId){
+        contentService.deleteContent(novelId, contentId);
+
+        return "redirect:/{novelId}/contents";
+    }
+
 
 
 

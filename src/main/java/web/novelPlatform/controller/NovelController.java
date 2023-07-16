@@ -70,7 +70,6 @@ public class NovelController {
         form.setSerialState(novel.getSerialState());
         form.setGenre(novel.getGenre());
 
-        //model.addAttribute("novel", novel);
         model.addAttribute("novelForm", form);
 
         return "novels/novelUpdate";
