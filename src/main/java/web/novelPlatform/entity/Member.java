@@ -21,6 +21,6 @@ public class Member {
     //만일 유저에 있는 내용이 바뀌면 소설 또한 내용이 바뀌어야 한다.
     private List<Novel> novelList;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Comment> commentList;
 }

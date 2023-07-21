@@ -26,7 +26,7 @@ public class Content {
     @JoinColumn(name = "novel_id") // one의 외부에서 보여지는 id와 연결을 해줘야 한다.
     private Novel novel;
 
-    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL)
     private List<Comment> commentList;
 
 }
