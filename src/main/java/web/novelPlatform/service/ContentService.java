@@ -15,18 +15,7 @@ public class ContentService {
 
     private final ContentRepository contentRepository;
 
-    @Transactional
-    //내용 추가
-    public Long createContent(Content content){
-        contentRepository.create(content);
 
-        return content.getId();
-    }
-
-    @Transactional
-    public void deleteContent(Long novelId, Long contentId){
-        contentRepository.delete(novelId, contentId);
-    }
 
     //내용 바꾸기
     @Transactional

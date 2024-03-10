@@ -19,7 +19,7 @@
       <div class="search">
         <form action="search.com">
           <label for="search_novel"></label>
-          <input type="text" id="search_novel" placeholder="소설을 검색해보세요.">
+          <input type="text" id="search_novel" placeholder="웹툰을 검색해보세요.">
           <button class="search_novel_button">검색</button>
         </form>
       </div>
@@ -58,16 +58,16 @@
       <div class="information">
         <ul>
           <li class="novel_title">
-            <span th:text="${novel.title}"></span>
+            <span th:text="${webtoon.title}"></span>
           </li>
           <li class="novel_writer">
             <span>작가 필명</span>
           </li>
           <li class="novel_introduce">
-            <span th:text="${novel.introduce}"></span>
+            <span th:text="${webtoon.introduce}"></span>
           </li>
           <li class="novel_notice">
-            <span>소설 공지</span>
+            <span>웹툰 공지</span>
           </li>
         </ul>
       </div>
@@ -80,7 +80,7 @@
               <span th:text="${i.index+1}"></span>
             </div>
             <div class="content_title">
-              <a th:href="@{/novels/{novelId}/view/{contentId} (novelId=${novel.id}, contentId=${content.id})}" th:text="${content.title}"></a>
+              <a th:href="@{/webtoon/{webtoonId}/view/{contentId} (webtoonId=${webtoon.id}, contentId=${content.id})}" th:text="${content.title}"></a>
             </div>
           </div>
         </li>

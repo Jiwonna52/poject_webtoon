@@ -19,7 +19,7 @@
       <div class="search">
         <form action="search.com">
           <label for="search_novel"></label>
-          <input type="text" id="search_novel" placeholder="소설을 검색해보세요.">
+          <input type="text" id="search_novel" placeholder="웹툰을 검색해보세요.">
           <button class="search_novel_button">검색</button>
         </form>
       </div>
@@ -52,7 +52,7 @@
   <main class="wrap_main">
     <div class="title_subTitle">
       <div class="title">
-        <h2>[[${content.novel.title}]]</h2>
+        <h2>[[${content.webtoon.title}]]</h2>
       </div>
       <div class="subTitle">
         <h3>[[${content.title}]]</h3>
@@ -61,6 +61,9 @@
     <div class="real_content">
       <section th:text = "${content.contents}">
       </section>
+    </div>
+    <div>
+      <img src="/images/developer.jpg">
     </div>
     <hr class="sep">
     <div class="comments">

@@ -2,14 +2,15 @@ package web.novelPlatform.controller.form;
 
 import lombok.Getter;
 import lombok.Setter;
-import web.novelPlatform.entity.Novel;
+import web.novelPlatform.entity.Webtoon;
 
 @Getter
 @Setter
 public class ContentForm {
     private String title;
     private String contents;
-    private Novel novel;
+    private String path;
+    private Webtoon webtoon;
 
     private Long id;
 }
